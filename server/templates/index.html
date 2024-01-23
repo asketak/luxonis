@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Title and Image Data</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Images</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for title_id, data in titles_data.items() %}
+            <tr>
+                <td>{{ data['title_name'] }}</td>
+                <td>
+                    <ul>
+                        {% for image in data['images'] %}
+                        <li><img src="{{ url_for('get_image', image_id=image.id) }}" alt="Image"></li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
