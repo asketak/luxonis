@@ -24,6 +24,8 @@ services:
       context: ./scraper  
     container_name: scraper_container
     depends_on:
+      python_app: 
+        condition: service_healthy
       db:
         condition: service_healthy
     environment:
@@ -40,8 +42,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-      scraper: 
-        condition: service_started
     ports:
       - "8080:8080"
     environment:
@@ -50,6 +50,11 @@ services:
       POSTGRES_USER: myuser
       POSTGRES_PASSWORD: mypassword
       POSTGRES_DB: mydatabase
+    healthcheck:
+      test: exit 0
+      interval: 5s
+      timeout: 5s
+      start_period: 5s
 
 volumes:
   postgres_data:

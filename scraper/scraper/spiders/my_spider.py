@@ -56,7 +56,7 @@ class MySpider(scrapy.Spider):
     name = 'my_spider'
 
     # Define the base URL with query parameters
-    base_url = 'https://www.sreality.cz/api/en/v2/estates?category_main_cb=1&noredirect=1&category_type_cb=1&locality_region_id=10&per_page=10&tms='
+    base_url = 'https://www.sreality.cz/api/en/v2/estates?category_main_cb=1&noredirect=1&category_type_cb=1&locality_region_id=10&per_page=500&tms='
 
     def start_requests(self):
         # Generate the current timestamp in milliseconds
