@@ -13,7 +13,6 @@ db_name = os.environ.get('POSTGRES_DB', 'mydatabase')
 
 # Construct the database URI using environment variables
 db_uri = f'postgresql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}'
-print(db_uri)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://myuser:mypassword@127.0.0.1:5432/mydatabase'

@@ -18,7 +18,8 @@
                 <td>
                     <ul>
                         {% for image in data['images'] %}
-                        <li><img src="{{ url_for('get_image', image_id=image.id) }}" alt="Image"></li>
+                        <img src="data:image/jpeg;base64,{{ image.data }}" alt="Image">
+
                         {% endfor %}
                     </ul>
                 </td>
